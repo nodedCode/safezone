@@ -397,14 +397,19 @@ img, svg, video { display: block; max-width: 100%; }
 .site-footer__textlink { font-size: 0.85rem; font-weight: 500; color: var(--c-text-sub); cursor: pointer; border: none; background: transparent; transition: color 0.2s ease; }
 .site-footer__textlink:hover { color: var(--c-accent); }
 
-/* Policy text is rendered in the DOM for search engine indexing but kept visually minimal */
+/* Policy text: visually hidden from users but indexable by search engine crawlers.
+   Uses the standard accessible "sr-only" technique. */
 .site-footer__policy-text {
-    max-width: 800px; margin: 1.5rem auto 0;
-    font-size: 0.72rem; color: var(--c-text-mute); line-height: 1.6;
-    text-align: center; display: flex; flex-direction: column; gap: 0.5rem;
-    opacity: 0.5;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }
-.site-footer__policy-text strong { color: var(--c-text-sub); }
 
 /* ============================================================
    MOBILE RESPONSIVENESS
